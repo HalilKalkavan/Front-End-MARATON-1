@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body style="margin-left: 20px">
+    <div class="container"></div>
+    <h3>API sorulari 2-2</h3>
+    <p>Bir tablo aç. Kolonlar ( Pilot Adı( givenname + familyname), ortalama hız, averagespeed objesindeki speed), takımı (constructor id), ülkesi </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Pilot adi</th>
+                    <th>Soyadi</th>
+                    <th>Ulke</th>
+                    <th>Ortalama hiz</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+    </body>
+</html>
+
+<Script>
+    var url = "https://ergast.com/api/f1/2004/1/results.json";
+
+    $.getJSON(url, function (veri) {
+        //remove older list from document
+        $("ul li").remove();
+        
+        // console.log(veri.MRData.RaceTable.Races[0].Results[0].Driver);
+        // console.log(veri.MRData.RaceTable.Races[0].Results[0].Driver.givenName);
+        // console.log(veri.MRData.RaceTable.Races[0].Results.length); //length of array
+        // console.log(veri);
+        var lengthOfObject = veri.MRData.RaceTable.Races[0].Results.length;
+        for(var i = 0; i < lengthOfObject; i++) {
+        var givenName = veri.MRData.RaceTable.Races[0].Results[i].Driver.givenName;
+        var familyName = veri.MRData.RaceTable.Races[0].Results[i].Driver.familyName;
+        var country = veri.MRData.RaceTable.Races[0].Results[i].Driver.nationality;
+        var averageSpeed = veri.MRData.RaceTable.Races[0].Results[i].FastestLap.AverageSpeed.speed;
+
+            $("tbody").append(`
+             <tr>
+                <td>`+ givenName + `</td>
+                <td>`+ familyName + `</td>
+                <td>`+ country + `</td>
+                <td>`+ averageSpeed + `</td>
+             </tr>`)
+        }
+    })
+</Script>

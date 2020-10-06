@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <h3>Soru-5</h3>
+    <!-- Ekrana bir adet p bir adet span bir adet img ve bir adet buton koy. Butona tıkladığımda buton dahil tüm elementler yok olsun. Bu işlem butonun click eventi içerisinde sadece tek satır kodda yapılmalı. Yani selector tüm elementleri seçmeli. -->
+    <div>
+        <span>Kacacak yer yok, eller yukari, teslim ol!..</span>
+    </div>
+    <div>
+           <img src="https://s31405.pcdn.co/wp-content/uploads/bfi_thumb/cyber-crime-ring-busted-39a8byohfrz1ee0be1i1ai.jpg" alt=""> 
+    </div>
+    <button>Escape Button :}</button>
+</body>
+</html>
+
+<script>
+    $(document).ready(function() {
+        $('button').click(function() {
+            $('*').hide();
+        })
+    })
+</script>

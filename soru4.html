@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    <title>Document</title>
+
+</head>
+<body style="background-color: lightgrey;">
+    <h3>Soru-4</h3>
+    <!-- Ekrana bir p ve bir buton koy. İçerisinde renklerin olduğu 7 lik bir dizi tanımla. Butona her tıkladığında diziden rastgele bir rengi p ye versin -->
+    <p>Ekrana bir p ve bir buton koy. İçerisinde renklerin olduğu 7 lik bir dizi tanımla. Butona her tıkladığında diziden rastgele bir rengi p ye versin</p>
+    <button>Change Color</button>
+</body>
+</html>
+
+<script>
+    var renk = ['cornflowerblue', 'blue', 'aqua', 'orange', 'tomato', 'bisque', 'aquamarine', 'darkgray', 'chocolate', 'darkcyan'];
+
+    $(document).ready(function() {
+        $('button').click(function() {
+    var x = Math.floor(Math.random() * 10);
+            $('p').css('color', renk[x]);
+        });
+    })
+</script>

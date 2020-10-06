@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <p>EMail adresi .biz ile biten kaç adet kullanıcı mevcut?</p>
+    <button>Total users</button>
+    
+    <p id="text">Total user amount is: </p>
+    </body>
+</html>
+
+<Script>
+
+$("button").click(function () {
+
+var url = "https://jsonplaceholder.typicode.com/users";
+
+    $.getJSON(url, function (veri) {
+        //total user amount
+        var userNum = 0;
+        veri.forEach(function (item) {
+            var emlBiz = item.email;
+            var b = emlBiz.indexOf("biz");
+            if (b > 1){
+            userNum++;
+            console.log(userNum);
+            console.log(emlBiz); 
+            }
+        });
+        document.getElementById('text').innerHTML = 'Total user numbers who has email ending with "biz" are: ' + userNum;
+    })
+})
+</Script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <p>En fazla post atan kullanıcı id si nedir?</p>
+    <button>How Many Posts</button>
+    
+    <p id="text">Most posts number: </p>
+    </body>
+</html>
+
+<Script>
+
+$("button").click(function () {
+
+var url = "https://jsonplaceholder.typicode.com/posts";
+
+    $.getJSON(url, function (veri) {
+        //total user amount
+        var userNum = 0;
+        var usrId = 0;
+        var usrAry = {};
+        veri.forEach(function (item) {
+            usrID = item.userId;
+            mailId = item.id;
+            usrAry.usrID = mailId;
+
+            // console.log(userNum);
+            // console.log(emlBiz); 
+            // }
+        });
+            console.log(usrId);
+            console.log(usrAry);
+            // console.log(userNum);
+    })
+})
+</Script>
+
+
